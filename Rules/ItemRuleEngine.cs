@@ -23,18 +23,50 @@ namespace RefactoringPractice.Rules
             }
         }
 
+        public class Builder
+        {
+            private readonly List<ItemRule> _itemRules = new List<ItemRule>();
+
+            public Builder WithAgedBrieRule()
+            {
+                _itemRules.Add(new AgedBrieRule());
+                return this;
+            }
+
+            public Builder WithSulfurasRule()
+            {
+                _itemRules.Add(new SulfurasRule());
+                return this;
+            }
+            public Builder WithBackstagePassesRule()
+            {
+                _itemRules.Add(new BackstagePassesRule());
+                return this;
+            }
+
+            public Builder WithConjuredItemRule()
+            {
+                _itemRules.Add(new ConjuredItemRule());
+                return this;
+            }
+
+            public ItemRuleEngine Build()
+            {
+                _itemRules.Add(new NormalRule());
+
+                return new ItemRuleEngine(_itemRules);
+            }
+        }
+
         public static ItemRuleEngine Create()
         {
-            var rules = new List<ItemRule>
-            {
-                new AgedBrieRule(),
-                new BackstagePassesRule(),
-                new NormalRule(),
-                new SulfurasRule(),
-                new ConjuredItemRule(),
-            };
-
-            return new ItemRuleEngine(rules);
+            var engine = new Builder()
+                .WithAgedBrieRule()
+                .WithBackstagePassesRule()
+                .WithConjuredItemRule()
+                .WithSulfurasRule()
+                .Build();
+            return engine;
         }
     }
 }
