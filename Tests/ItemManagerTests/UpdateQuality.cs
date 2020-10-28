@@ -1,9 +1,8 @@
 ﻿using FluentAssertions;
-using RefactoringPractice;
 using RefactoringPractice.Rules;
 using Xunit;
 
-namespace RefactoringPracticeTests.ItemManagerTests
+namespace RefactoringPractice.Tests.ItemManagerTests
 {
     public class UpdateQualityTests
     {

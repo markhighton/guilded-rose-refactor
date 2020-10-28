@@ -1,18 +1,6 @@
-﻿using System;
-using System.Text;
-
-namespace RefactoringPractice.Rules
+﻿namespace RefactoringPractice.Rules
 {
-    public interface IItemRule
-    {
-        bool Matches(ItemProxy item);
-        void UpdateItem(ItemProxy item);
-        void AdjustQuality(ItemProxy item);
-        void AdjustSellIn(ItemProxy item);
-        void AdjustQualityForNegativeSellIn(ItemProxy item);
-    }
-
-    public abstract class ItemRule : IItemRule
+    public abstract class ItemRule 
     {
         public abstract bool Matches(ItemProxy item);
         public void UpdateItem(ItemProxy item)

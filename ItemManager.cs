@@ -40,7 +40,7 @@ namespace RefactoringPractice
         //                if (_items[i].Name != "Sulfuras, Hand of Ragnaros")
         //                {
         //                    if (_items[i].Name != ItemNames.ConjuredManaCake)
-        //                    {
+        //                    { 
         //                        _items[i].Quality = _items[i].Quality - 1;
         //                    }
         //                    else
